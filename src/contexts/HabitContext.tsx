@@ -68,7 +68,7 @@ const defaultHabits: Habit[] = [
     description: 'Meditate for 10 minutes',
     frequency: 'daily',
     color: 'habit-pink',
-    icon: 'spa',
+    icon: 'spa', // This will now map to the Flame icon in our updated HabitIcon component
     createdAt: new Date(),
     completedDates: [],
     streak: 0,

@@ -16,7 +16,7 @@ import {
   Salad,
   ScrollText,
   Smile,
-  Spa,
+  Flame, // Replacing Spa with Flame which is available
   Utensils
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -46,7 +46,7 @@ const iconMap: IconMap = {
   salad: Salad,
   "scroll-text": ScrollText,
   smile: Smile,
-  spa: Spa,
+  spa: Flame, // Map 'spa' to Flame icon
   utensils: Utensils,
 };
 
