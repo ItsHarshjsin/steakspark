@@ -1,37 +1,31 @@
 
 import React from 'react';
-import { HabitStats } from './HabitStats';
-import { HabitList } from './HabitList';
+import { DashboardStats } from './DashboardStats';
+import { HabitListNew } from './HabitListNew';
+import { MonthlyOverview } from './MonthlyOverview';
 import { AddHabitDialog } from './AddHabitDialog';
 
 export const Dashboard = () => {
-  const today = new Date();
-  const formattedDate = today.toLocaleDateString('en-US', {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
-
   return (
-    <div className="container mx-auto py-8 px-4 max-w-6xl animate-slide-in">
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
+    <div className="container mx-auto py-8 px-6 max-w-7xl">
+      <div className="flex justify-between items-center mb-8">
         <div>
-          <h1 className="text-3xl md:text-4xl font-bold streak-gradient">StreakSpark</h1>
-          <p className="text-muted-foreground">{formattedDate}</p>
+          <h1 className="text-3xl font-bold">Dashboard</h1>
+          <p className="text-muted-foreground">Track your habits and build consistency</p>
         </div>
-        <AddHabitDialog />
+        <AddHabitDialog variant="default" className="bg-violet-600 hover:bg-violet-700" />
       </div>
 
-      <div className="mb-8">
-        <HabitStats />
-      </div>
+      <DashboardStats />
 
-      <div className="flex items-center justify-between mb-6">
-        <h2 className="text-2xl font-bold">Your Habits</h2>
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="lg:col-span-2">
+          <HabitListNew />
+        </div>
+        <div>
+          <MonthlyOverview />
+        </div>
       </div>
-
-      <HabitList />
     </div>
   );
 };
