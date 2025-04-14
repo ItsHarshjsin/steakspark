@@ -4,7 +4,6 @@ import { Link, useLocation } from 'react-router-dom';
 import { Activity, Calendar, ChartBar, Settings } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from './ui/button';
-import { AddHabitDialog } from './AddHabitDialog';
 
 export const AppSidebar = () => {
   const location = useLocation();
@@ -66,7 +65,12 @@ export const AppSidebar = () => {
         
         <div className="mt-auto">
           <p className="text-xs font-medium text-muted-foreground pl-3 mb-3">Actions</p>
-          <AddHabitDialog className="w-full justify-start gap-3" variant="secondary" buttonText="Add New Habit" />
+          <Link to="/dashboard">
+            <Button className="w-full justify-start gap-3" variant="secondary">
+              <span className="h-5 w-5 flex items-center justify-center">+</span>
+              Add New Habit
+            </Button>
+          </Link>
         </div>
       </div>
       

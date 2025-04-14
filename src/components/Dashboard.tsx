@@ -3,7 +3,8 @@ import React from 'react';
 import { DashboardStats } from './DashboardStats';
 import { HabitListNew } from './HabitListNew';
 import { MonthlyOverview } from './MonthlyOverview';
-import { AddHabitDialog } from './AddHabitDialog';
+import { Button } from './ui/button';
+import { Link } from 'react-router-dom';
 
 export const Dashboard = () => {
   return (
@@ -13,7 +14,11 @@ export const Dashboard = () => {
           <h1 className="text-3xl font-bold">Dashboard</h1>
           <p className="text-muted-foreground">Track your habits and build consistency</p>
         </div>
-        <AddHabitDialog variant="default" className="bg-violet-600 hover:bg-violet-700" />
+        <Link to="/dashboard">
+          <Button className="bg-violet-600 hover:bg-violet-700">
+            Add Habit
+          </Button>
+        </Link>
       </div>
 
       <DashboardStats />
