@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Activity, Calendar, ChartBar, Settings, PlusCircle } from 'lucide-react';
+import { Activity, ChartBar, Settings, PlusCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from './ui/button';
 
@@ -13,11 +13,6 @@ export const AppSidebar = () => {
       name: 'Dashboard', 
       path: '/dashboard', 
       icon: <Activity className="h-5 w-5" /> 
-    },
-    { 
-      name: 'Calendar', 
-      path: '/calendar', 
-      icon: <Calendar className="h-5 w-5" /> 
     },
     { 
       name: 'Statistics', 

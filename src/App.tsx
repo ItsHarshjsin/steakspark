@@ -7,7 +7,6 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Landing from "./pages/Landing";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
-import { Calendar } from "./pages/Calendar";
 import { Statistics } from "./pages/Statistics";
 import { Settings } from "./pages/Settings";
 import { HabitProvider } from "./contexts/HabitContext";
@@ -24,7 +23,6 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Landing />} />
             <Route path="/dashboard" element={<Index />} />
-            <Route path="/calendar" element={<Calendar />} />
             <Route path="/statistics" element={<Statistics />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="*" element={<NotFound />} />
