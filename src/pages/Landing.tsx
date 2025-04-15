@@ -1,9 +1,9 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { 
   Zap, Flame, Bird, Calendar, BarChart3, ArrowRight, BookOpen, 
-  Coffee, Dumbbell, Droplet, CheckCircle, Target, Sparkles 
+  Coffee, Dumbbell, Droplet, CheckCircle, Target, Sparkles,
+  Twitter, Instagram, Facebook, Linkedin, Mail
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -355,6 +355,114 @@ const CTASection = () => {
   );
 };
 
+const Footer = () => {
+  return (
+    <footer className="py-16 border-t border-gray-200">
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
+          <div className="space-y-6">
+            <div className="flex items-center gap-2">
+              <Sparkles className="h-5 w-5 text-pink-500" />
+              <span className="font-semibold text-xl">StreakSpark</span>
+            </div>
+            
+            <p className="text-gray-600 text-sm">
+              Build lasting habits and achieve your goals with our science-backed habit tracking and streak building system.
+            </p>
+            
+            <div className="flex gap-4">
+              <a href="#" className="text-gray-500 hover:text-gray-800 transition-colors">
+                <Twitter className="h-5 w-5" />
+              </a>
+              <a href="#" className="text-gray-500 hover:text-gray-800 transition-colors">
+                <Instagram className="h-5 w-5" />
+              </a>
+              <a href="#" className="text-gray-500 hover:text-gray-800 transition-colors">
+                <Facebook className="h-5 w-5" />
+              </a>
+              <a href="#" className="text-gray-500 hover:text-gray-800 transition-colors">
+                <Linkedin className="h-5 w-5" />
+              </a>
+            </div>
+          </div>
+          
+          <div>
+            <h3 className="font-semibold text-lg mb-4">Product</h3>
+            <ul className="space-y-3">
+              <li>
+                <a href="#" className="text-gray-600 hover:text-gray-900 text-sm transition-colors">Features</a>
+              </li>
+              <li>
+                <a href="#" className="text-gray-600 hover:text-gray-900 text-sm transition-colors">Pricing</a>
+              </li>
+              <li>
+                <a href="#" className="text-gray-600 hover:text-gray-900 text-sm transition-colors">Testimonials</a>
+              </li>
+              <li>
+                <a href="#" className="text-gray-600 hover:text-gray-900 text-sm transition-colors">FAQ</a>
+              </li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 className="font-semibold text-lg mb-4">Company</h3>
+            <ul className="space-y-3">
+              <li>
+                <a href="#" className="text-gray-600 hover:text-gray-900 text-sm transition-colors">About</a>
+              </li>
+              <li>
+                <a href="#" className="text-gray-600 hover:text-gray-900 text-sm transition-colors">Blog</a>
+              </li>
+              <li>
+                <a href="#" className="text-gray-600 hover:text-gray-900 text-sm transition-colors">Careers</a>
+              </li>
+              <li>
+                <a href="#" className="text-gray-600 hover:text-gray-900 text-sm transition-colors">Contact</a>
+              </li>
+            </ul>
+          </div>
+          
+          <div className="space-y-8">
+            <div>
+              <h3 className="font-semibold text-lg mb-4">Legal</h3>
+              <ul className="space-y-3">
+                <li>
+                  <a href="#" className="text-gray-600 hover:text-gray-900 text-sm transition-colors">Privacy</a>
+                </li>
+                <li>
+                  <a href="#" className="text-gray-600 hover:text-gray-900 text-sm transition-colors">Terms</a>
+                </li>
+                <li>
+                  <a href="#" className="text-gray-600 hover:text-gray-900 text-sm transition-colors">Cookie Policy</a>
+                </li>
+              </ul>
+            </div>
+            
+            <div>
+              <h3 className="font-semibold text-lg mb-4">Subscribe</h3>
+              <div className="flex gap-2">
+                <Input 
+                  type="email" 
+                  placeholder="Enter your email"
+                  className="bg-white text-sm" 
+                />
+                <Button className="bg-purple-600 hover:bg-purple-700">
+                  <Mail className="h-4 w-4" />
+                  <span className="sr-only">Subscribe</span>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div className="mt-16 pt-8 border-t border-gray-200 text-center text-gray-500 text-sm">
+          <p>© 2025 StreakSpark. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
 const Landing = () => {
   return (
     <div className="min-h-screen bg-background">
@@ -366,17 +474,7 @@ const Landing = () => {
         <TestimonialsSection />
         <CTASection />
       </main>
-      <footer className="py-8 bg-violet-50 border-t border-violet-100">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="flex items-center gap-2 mb-4 md:mb-0">
-              <Zap className="h-5 w-5 text-primary" />
-              <span className="font-semibold">StreakSpark</span>
-            </div>
-            <p className="text-sm text-gray-500">© 2025 StreakSpark. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
