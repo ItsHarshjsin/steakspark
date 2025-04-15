@@ -1,4 +1,5 @@
-import React from 'react';
+
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   Zap, Flame, Bird, Calendar, BarChart3, ArrowRight, BookOpen, 
@@ -16,63 +17,155 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card";
 
 const HabitBuddySection = () => {
+  const [activeStage, setActiveStage] = useState<'spark' | 'flame' | 'phoenix'>('phoenix');
+
   return (
-    <section className="py-20 bg-violet-50">
-      <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-16 animate-fade-in">Meet Your Habit Buddy</h2>
+    <section className="py-20 bg-gradient-to-br from-violet-50 to-purple-100 relative overflow-hidden">
+      {/* Decorative elements */}
+      <div className="absolute top-0 right-0 w-64 h-64 bg-pink-100 rounded-full -mr-32 -mt-32 opacity-50"></div>
+      <div className="absolute bottom-0 left-0 w-48 h-48 bg-purple-100 rounded-full -ml-24 -mb-24 opacity-60"></div>
+      
+      <div className="container mx-auto px-4 relative z-10">
+        <h2 className="text-4xl font-bold text-center mb-6 animate-fade-in streak-gradient">Meet Your Habit Buddy</h2>
+        <p className="text-center text-gray-600 mb-10 max-w-2xl mx-auto">
+          Your virtual companion evolves as you build consistent habits. Watch it transform from a tiny spark to a majestic phoenix!
+        </p>
         
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
           <div className="flex-1 flex justify-center">
-            <div className="relative animate-bounce-slow">
-              <div className="bg-pink-100 w-64 h-64 rounded-full absolute -z-10 transform -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2"></div>
+            <div className="relative">
+              <div className={`transition-all duration-500 ${
+                activeStage === 'spark' 
+                  ? 'bg-amber-100 w-48 h-48' 
+                  : activeStage === 'flame' 
+                    ? 'bg-orange-100 w-56 h-56' 
+                    : 'bg-pink-100 w-64 h-64'
+              } rounded-full absolute -z-10 transform -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2`}></div>
+              
               <div className="relative z-10 h-48 w-auto flex flex-col items-center">
-                <div className="w-36 h-36 bg-gradient-to-b from-orange-300 to-pink-500 rounded-full flex items-center justify-center">
-                  <Bird className="h-16 w-16 text-white animate-pulse-light" />
+                <div className={`transition-all duration-500 ${
+                  activeStage === 'spark' 
+                    ? 'w-24 h-24 bg-gradient-to-b from-yellow-300 to-amber-500' 
+                    : activeStage === 'flame' 
+                      ? 'w-32 h-32 bg-gradient-to-b from-amber-400 to-orange-500' 
+                      : 'w-36 h-36 bg-gradient-to-b from-orange-300 to-pink-500'
+                } rounded-full flex items-center justify-center animate-bounce-slow`}>
+                  {activeStage === 'spark' && (
+                    <Zap className="h-12 w-12 text-white animate-pulse-light" />
+                  )}
+                  {activeStage === 'flame' && (
+                    <Flame className="h-14 w-14 text-white animate-pulse-light" />
+                  )}
+                  {activeStage === 'phoenix' && (
+                    <Bird className="h-16 w-16 text-white animate-pulse-light" />
+                  )}
                 </div>
-                <h3 className="text-2xl font-bold text-center mt-4">Phoenix</h3>
+                <h3 className="text-2xl font-bold text-center mt-4 capitalize">{activeStage}</h3>
               </div>
             </div>
           </div>
           
           <div className="flex-1 max-w-lg">
-            <div className="bg-white rounded-xl shadow-sm p-8 animate-scale-in">
+            <div className="bg-white rounded-xl shadow-lg p-8 animate-scale-in border border-purple-100">
               <h3 className="text-2xl font-bold mb-6">Watch Your Buddy Evolve</h3>
               
-              <div className="space-y-8">
-                <div className="flex gap-4 animate-slide-in" style={{ animationDelay: '0.1s' }}>
-                  <div className="h-10 w-10 rounded-full bg-amber-100 flex items-center justify-center text-amber-500">
-                    <Zap size={20} />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold">Spark</h4>
-                    <p className="text-gray-600">Just getting started! Complete your first day to ignite your habit spark.</p>
-                  </div>
-                </div>
-                
-                <div className="flex gap-4 animate-slide-in" style={{ animationDelay: '0.3s' }}>
-                  <div className="h-10 w-10 rounded-full bg-orange-100 flex items-center justify-center text-orange-500">
-                    <Flame size={20} />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold">Flame</h4>
-                    <p className="text-gray-600">You're building momentum! Keep going to reach a full week streak.</p>
-                  </div>
-                </div>
-                
-                <div className="flex gap-4 animate-slide-in" style={{ animationDelay: '0.5s' }}>
-                  <div className="h-10 w-10 rounded-full bg-pink-100 flex items-center justify-center text-pink-500">
-                    <Bird size={20} />
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex items-center gap-2">
-                      <h4 className="font-semibold">Phoenix</h4>
-                      <span className="px-2 py-1 bg-orange-100 text-orange-500 text-xs rounded-full">Current</span>
+              <div className="space-y-6">
+                <HoverCard openDelay={200} closeDelay={100}>
+                  <HoverCardTrigger asChild>
+                    <div 
+                      className={`flex gap-4 p-3 rounded-lg transition-all cursor-pointer ${
+                        activeStage === 'spark' ? 'bg-amber-50' : 'hover:bg-amber-50/50'
+                      }`}
+                      onMouseEnter={() => setActiveStage('spark')}
+                    >
+                      <div className="h-12 w-12 rounded-full bg-amber-100 flex items-center justify-center text-amber-500 shadow-sm">
+                        <Zap size={24} />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold">Spark</h4>
+                        <p className="text-gray-600">Just getting started! Complete your first day to ignite your habit spark.</p>
+                      </div>
                     </div>
-                    <p className="text-gray-600">Amazing! You've mastered this habit with a 30-day streak. You're unstoppable!</p>
-                  </div>
-                </div>
+                  </HoverCardTrigger>
+                  <HoverCardContent className="w-80 bg-amber-50 border-amber-200">
+                    <div className="flex justify-between space-x-4">
+                      <div className="space-y-1">
+                        <h4 className="text-sm font-semibold">Day 1-7</h4>
+                        <p className="text-sm">
+                          The beginning of your journey! Your tiny spark represents the small but mighty beginning of your habit formation.
+                        </p>
+                      </div>
+                    </div>
+                  </HoverCardContent>
+                </HoverCard>
+                
+                <HoverCard openDelay={200} closeDelay={100}>
+                  <HoverCardTrigger asChild>
+                    <div 
+                      className={`flex gap-4 p-3 rounded-lg transition-all cursor-pointer ${
+                        activeStage === 'flame' ? 'bg-orange-50' : 'hover:bg-orange-50/50'
+                      }`}
+                      onMouseEnter={() => setActiveStage('flame')}
+                    >
+                      <div className="h-12 w-12 rounded-full bg-orange-100 flex items-center justify-center text-orange-500 shadow-sm">
+                        <Flame size={24} />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold">Flame</h4>
+                        <p className="text-gray-600">You're building momentum! Keep going to reach a full week streak.</p>
+                      </div>
+                    </div>
+                  </HoverCardTrigger>
+                  <HoverCardContent className="w-80 bg-orange-50 border-orange-200">
+                    <div className="flex justify-between space-x-4">
+                      <div className="space-y-1">
+                        <h4 className="text-sm font-semibold">Day 8-29</h4>
+                        <p className="text-sm">
+                          Your habit is catching fire! This is where consistency starts to form and your habits become more automatic.
+                        </p>
+                      </div>
+                    </div>
+                  </HoverCardContent>
+                </HoverCard>
+                
+                <HoverCard openDelay={200} closeDelay={100}>
+                  <HoverCardTrigger asChild>
+                    <div 
+                      className={`flex gap-4 p-3 rounded-lg transition-all cursor-pointer ${
+                        activeStage === 'phoenix' ? 'bg-pink-50' : 'hover:bg-pink-50/50'
+                      }`}
+                      onMouseEnter={() => setActiveStage('phoenix')}
+                    >
+                      <div className="h-12 w-12 rounded-full bg-pink-100 flex items-center justify-center text-pink-500 shadow-sm">
+                        <Bird size={24} />
+                      </div>
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2">
+                          <h4 className="font-semibold">Phoenix</h4>
+                          <span className="px-2 py-1 bg-orange-100 text-orange-500 text-xs rounded-full">Current</span>
+                        </div>
+                        <p className="text-gray-600">Amazing! You've mastered this habit with a 30-day streak. You're unstoppable!</p>
+                      </div>
+                    </div>
+                  </HoverCardTrigger>
+                  <HoverCardContent className="w-80 bg-pink-50 border-pink-200">
+                    <div className="flex justify-between space-x-4">
+                      <div className="space-y-1">
+                        <h4 className="text-sm font-semibold">Day 30+</h4>
+                        <p className="text-sm">
+                          Congratulations! Your habit has transformed into a majestic phoenix. You've built a lasting routine that's now part of your life.
+                        </p>
+                      </div>
+                    </div>
+                  </HoverCardContent>
+                </HoverCard>
               </div>
               
               <div className="mt-8">
@@ -80,7 +173,7 @@ const HabitBuddySection = () => {
                   <span>Progress</span>
                   <span>Day 30</span>
                 </p>
-                <div className="h-2 w-full bg-gradient-to-r from-amber-200 via-orange-300 to-pink-400 rounded-full relative overflow-hidden">
+                <div className="h-3 w-full bg-gradient-to-r from-amber-200 via-orange-300 to-pink-400 rounded-full relative overflow-hidden">
                   <div className="absolute inset-0 bg-white opacity-70 animate-progress-pulse"></div>
                 </div>
               </div>
