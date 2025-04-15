@@ -390,11 +390,11 @@ const HeroSection = () => {
           </div>
           
           <div className="dashboard-preview w-full max-w-[1000px] mx-auto rounded-xl shadow-md border border-gray-100 overflow-hidden animate-scale-in">
-            <div className="bg-violet-600 text-white px-4 py-3">
+            <div className="bg-violet-600 text-white px-4 py-3 mb-2">
                 <div className="flex items-center gap-2">
                   <Zap className="h-5 w-5" />
-                <span className="font-medium">StreakSpark Dashboard</span>
-              </div>
+                  <span className="font-medium">StreakSpark Dashboard</span>
+                </div>
             </div>
             <div className="bg-white p-6">
                 <div className="flex flex-wrap gap-4 mb-6">
@@ -468,24 +468,28 @@ const HeroSection = () => {
 
 const CTASection = () => {
   return (
-    <section className="py-12">
+    <section className="pb-12">
       <div className="container mx-auto px-4">
-        <div className="max-w-3xl mx-auto bg-white rounded-xl shadow-sm overflow-hidden">
-          <div className="p-6 md:p-8 relative">
-            <div className="absolute top-0 right-0 h-20 w-20 bg-pink-100 rounded-full -mr-10 -mt-10 opacity-50"></div>
-            <div className="absolute bottom-0 left-0 h-12 w-12 bg-violet-100 rounded-full -ml-6 -mb-6 opacity-50"></div>
+        <div className="max-w-[1400px] mx-auto bg-white rounded-2xl shadow-sm overflow-hidden">
+          <div className="p-8 relative">
+            {/* Decorative Elements */}
+            <div className="absolute top-0 right-0 h-32 w-32 bg-pink-100 rounded-full -mr-16 -mt-16 opacity-50"></div>
+            <div className="absolute bottom-0 left-0 h-24 w-24 bg-violet-100 rounded-full -ml-12 -mb-12 opacity-50"></div>
+            <div className="absolute top-1/2 right-1/4 h-16 w-16 bg-amber-100 rounded-full opacity-30"></div>
             
-            <h2 className="text-2xl font-bold text-center mb-3 relative z-10">Ready to light up your habits?</h2>
-            <p className="text-center text-gray-600 mb-6 relative z-10 text-sm">
-              Start tracking your habits today and watch your consistency transform your life. Join our community of habit builders!
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-2 max-w-md mx-auto">
-              <Input type="email" placeholder="Enter your email" className="z-10" />
-              <Button className="bg-gradient-to-r from-pink-500 to-violet-500 hover:from-pink-600 hover:to-violet-600 text-white z-10 group">
-                <span>Start Streaking</span>
-                <ArrowRight size={16} className="ml-1 group-hover:translate-x-1 transition-transform" />
-              </Button>
+            <div className="max-w-3xl mx-auto relative z-10">
+              <h2 className="text-3xl font-bold text-center mb-2 relative z-10">Ready to light up your habits?</h2>
+              <p className="text-center text-gray-600 mb-5 relative z-10 text-lg">
+                Start tracking your habits today and watch your consistency transform your life. Join our community of habit builders!
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
+                <Input type="email" placeholder="Enter your email" className="flex-1 h-12 text-base" />
+                <Button className="bg-gradient-to-r from-pink-500 to-violet-500 hover:from-pink-600 hover:to-violet-600 text-white h-12 px-8 text-base group">
+                  <span>Start Streaking</span>
+                  <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </div>
             </div>
           </div>
         </div>
@@ -498,72 +502,75 @@ const Footer = () => {
   return (
     <footer className="py-12 border-t border-gray-200">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div className="space-y-4">
-            <div className="flex items-center gap-2">
-              <Sparkles className="h-5 w-5 text-pink-500" />
-              <span className="font-semibold text-lg">StreakSpark</span>
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-12">
+            {/* Brand Column - Takes 2 columns */}
+            <div className="md:col-span-2 space-y-4">
+              <div className="flex items-center gap-2">
+                <Sparkles className="h-5 w-5 text-pink-500" />
+                <span className="font-semibold text-lg">StreakSpark</span>
+              </div>
+              
+              <p className="text-gray-600 text-sm max-w-sm">
+                Build lasting habits and achieve your goals with our science-backed habit tracking and streak building system.
+              </p>
+              
+              <div className="flex gap-4">
+                <a href="#" className="text-gray-400 hover:text-gray-600 transition-colors p-2 hover:bg-gray-50 rounded-full">
+                  <Twitter className="h-4 w-4" />
+                </a>
+                <a href="#" className="text-gray-400 hover:text-gray-600 transition-colors p-2 hover:bg-gray-50 rounded-full">
+                  <Instagram className="h-4 w-4" />
+                </a>
+                <a href="#" className="text-gray-400 hover:text-gray-600 transition-colors p-2 hover:bg-gray-50 rounded-full">
+                  <Facebook className="h-4 w-4" />
+                </a>
+                <a href="#" className="text-gray-400 hover:text-gray-600 transition-colors p-2 hover:bg-gray-50 rounded-full">
+                  <Linkedin className="h-4 w-4" />
+                </a>
+              </div>
             </div>
             
-            <p className="text-gray-600 text-sm">
-              Build lasting habits and achieve your goals with our science-backed habit tracking and streak building system.
-            </p>
-            
-            <div className="flex gap-3">
-              <a href="#" className="text-gray-400 hover:text-gray-600 transition-colors">
-                <Twitter className="h-4 w-4" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-gray-600 transition-colors">
-                <Instagram className="h-4 w-4" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-gray-600 transition-colors">
-                <Facebook className="h-4 w-4" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-gray-600 transition-colors">
-                <Linkedin className="h-4 w-4" />
-              </a>
-            </div>
-          </div>
-          
-          <div>
-            <h3 className="font-semibold mb-3">Product</h3>
-            <ul className="space-y-2">
-              <li>
-                <a href="#" className="text-gray-600 hover:text-gray-900 text-sm transition-colors">Features</a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-600 hover:text-gray-900 text-sm transition-colors">Pricing</a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-600 hover:text-gray-900 text-sm transition-colors">Testimonials</a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-600 hover:text-gray-900 text-sm transition-colors">FAQ</a>
-              </li>
-            </ul>
-          </div>
-          
-          <div>
-            <h3 className="font-semibold mb-3">Company</h3>
-            <ul className="space-y-2">
-              <li>
-                <a href="#" className="text-gray-600 hover:text-gray-900 text-sm transition-colors">About</a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-600 hover:text-gray-900 text-sm transition-colors">Blog</a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-600 hover:text-gray-900 text-sm transition-colors">Careers</a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-600 hover:text-gray-900 text-sm transition-colors">Contact</a>
-              </li>
-            </ul>
-          </div>
-          
+            {/* Navigation Columns */}
             <div>
-            <h3 className="font-semibold mb-3">Legal</h3>
-            <ul className="space-y-2">
+              <h3 className="font-semibold mb-4 text-sm text-gray-900">Product</h3>
+              <ul className="space-y-3">
+                <li>
+                  <a href="#" className="text-gray-600 hover:text-gray-900 text-sm transition-colors">Features</a>
+                </li>
+                <li>
+                  <a href="#" className="text-gray-600 hover:text-gray-900 text-sm transition-colors">Pricing</a>
+                </li>
+                <li>
+                  <a href="#" className="text-gray-600 hover:text-gray-900 text-sm transition-colors">Testimonials</a>
+                </li>
+                <li>
+                  <a href="#" className="text-gray-600 hover:text-gray-900 text-sm transition-colors">FAQ</a>
+                </li>
+              </ul>
+            </div>
+            
+            <div>
+              <h3 className="font-semibold mb-4 text-sm text-gray-900">Company</h3>
+              <ul className="space-y-3">
+                <li>
+                  <a href="#" className="text-gray-600 hover:text-gray-900 text-sm transition-colors">About</a>
+                </li>
+                <li>
+                  <a href="#" className="text-gray-600 hover:text-gray-900 text-sm transition-colors">Blog</a>
+                </li>
+                <li>
+                  <a href="#" className="text-gray-600 hover:text-gray-900 text-sm transition-colors">Careers</a>
+                </li>
+                <li>
+                  <a href="#" className="text-gray-600 hover:text-gray-900 text-sm transition-colors">Contact</a>
+                </li>
+              </ul>
+            </div>
+            
+            <div>
+              <h3 className="font-semibold mb-4 text-sm text-gray-900">Legal</h3>
+              <ul className="space-y-3">
                 <li>
                   <a href="#" className="text-gray-600 hover:text-gray-900 text-sm transition-colors">Privacy</a>
                 </li>
@@ -573,10 +580,11 @@ const Footer = () => {
                 <li>
                   <a href="#" className="text-gray-600 hover:text-gray-900 text-sm transition-colors">Cookie Policy</a>
                 </li>
-              <li>
-                <a href="#" className="text-gray-600 hover:text-gray-900 text-sm transition-colors">Licenses</a>
-              </li>
+                <li>
+                  <a href="#" className="text-gray-600 hover:text-gray-900 text-sm transition-colors">Licenses</a>
+                </li>
               </ul>
+            </div>
           </div>
         </div>
       </div>
