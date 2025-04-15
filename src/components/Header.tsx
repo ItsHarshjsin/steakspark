@@ -1,39 +1,29 @@
-
-import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Zap } from 'lucide-react';
-import { ModeToggle } from './ModeToggle';
-import { Button } from './ui/button';
+import { Link } from "react-router-dom";
+import { Button } from "./ui/button";
+import { Sparkles } from "lucide-react";
 
 export const Header = () => {
-  const location = useLocation();
-  const isLandingPage = location.pathname === '/';
-
   return (
-    <header className="border-b bg-background/90 backdrop-blur-sm sticky top-0 z-10">
-      <div className="container mx-auto px-4 py-3 flex justify-between items-center">
-        <div className="flex items-center gap-2">
-          <Link to="/" className="flex items-center gap-2">
-            <Zap className="h-5 w-5 text-primary" />
-            <span className="font-semibold">StreakSpark</span>
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container flex h-14 items-center">
+        <Link to="/" className="flex items-center gap-2 mr-6">
+          <Sparkles className="h-5 w-5 text-violet-600" />
+          <span className="font-semibold">StreakSpark</span>
+        </Link>
+
+        <nav className="flex items-center space-x-6 text-sm font-medium flex-1">
+          <Link to="/features" className="text-foreground/60 transition-colors hover:text-foreground">
+            Features
           </Link>
-        </div>
-        
-        <div className="flex items-center gap-4">
-          {isLandingPage ? (
-            <>
-              <Button variant="ghost" asChild>
-                <Link to="/dashboard">Features</Link>
-              </Button>
-              <Button variant="ghost" asChild>
-                <Link to="/dashboard">Testimonials</Link>
-              </Button>
-              <Button size="sm" asChild>
-                <Link to="/dashboard">Dashboard</Link>
-              </Button>
-            </>
-          ) : null}
-          <ModeToggle />
+          <Link to="/testimonials" className="text-foreground/60 transition-colors hover:text-foreground">
+            Testimonials
+          </Link>
+        </nav>
+
+        <div className="flex items-center gap-2">
+          <Button asChild variant="default" className="bg-violet-600 hover:bg-violet-700">
+            <Link to="/dashboard">Dashboard</Link>
+          </Button>
         </div>
       </div>
     </header>

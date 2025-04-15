@@ -1,8 +1,6 @@
-
 import React, { useState } from 'react';
 import { HabitProvider } from '@/contexts/HabitContext';
 import { AppSidebar } from '@/components/AppSidebar';
-import { ModeToggle } from '@/components/ModeToggle';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
 import { LineChart, BarChart, Line, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
@@ -43,7 +41,6 @@ export const Statistics = () => {
         <AppSidebar />
         <div className="flex-1 flex flex-col overflow-auto">
           <header className="border-b bg-background/90 backdrop-blur-sm sticky top-0 z-10 flex justify-end items-center h-14 px-4">
-            <ModeToggle />
           </header>
           <main className="flex-1 p-8">
             <div className="mb-6">

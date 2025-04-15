@@ -1,8 +1,6 @@
-
 import React, { useState } from 'react';
 import { useHabits } from '@/contexts/HabitContext';
 import { AppSidebar } from '@/components/AppSidebar';
-import { ModeToggle } from '@/components/ModeToggle';
 import { Calendar as CalendarComponent } from '@/components/ui/calendar';
 import { format, addMonths, subMonths } from 'date-fns';
 import { ChevronLeft, ChevronRight, Calendar as CalendarIcon } from 'lucide-react';
@@ -36,7 +34,6 @@ export const Calendar = () => {
       <AppSidebar />
       <div className="flex-1 flex flex-col overflow-auto">
         <header className="border-b bg-background/90 backdrop-blur-sm sticky top-0 z-10 flex justify-end items-center h-14 px-4">
-          <ModeToggle />
         </header>
         <main className="flex-1 p-8">
           <div className="mb-6">

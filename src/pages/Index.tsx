@@ -1,9 +1,7 @@
-
 import React from 'react';
 import { HabitProvider } from '@/contexts/HabitContext';
 import { Dashboard } from '@/components/Dashboard';
 import { AppSidebar } from '@/components/AppSidebar';
-import { ModeToggle } from '@/components/ModeToggle';
 
 const Index = () => {
   return (
@@ -12,7 +10,6 @@ const Index = () => {
         <AppSidebar />
         <div className="flex-1 flex flex-col overflow-auto">
           <header className="border-b bg-background/90 backdrop-blur-sm sticky top-0 z-10 flex justify-end items-center h-14 px-4">
-            <ModeToggle />
           </header>
           <main className="flex-1">
             <Dashboard />
